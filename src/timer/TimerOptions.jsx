@@ -37,12 +37,13 @@ const TimerOptions = React.memo(props => {
 
 	const handleDeleteClick = (e) => {
 		dispatch({type: 'TIMER_OPTIONS_HIDE'})
-		if(window.confirm('Are you sure you want to delete this timer?')) {
+		
+		// if(window.confirm('Are you sure you want to delete this timer?')) {
 			dispatch({
 				type: 'TIMER_DELETE',
 				timer_id,
 			})
-		}
+		// }
 	}
 
 	return (

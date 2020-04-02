@@ -36,6 +36,10 @@ export const selectTimerById = (state, timer_id) => {
   return _.find(selectCalculatedTimers(state), {timer_id})
 }
 
+export const selectTimerByView = (state, related_view) => {
+  return _.find(selectCalculatedTimers(state), {related_view})
+}
+
 export const selectTimerIsShowingOptions = (state, contextView, timer_id) => {
   return (state.timer.showOptionsOnId[contextView] === timer_id)
 }

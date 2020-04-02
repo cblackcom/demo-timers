@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 import * as style from '../misc/style'
+import TimerContext from './TimerContext'
 import TimerProgressIndicator from './TimerProgressIndicator'
 
 const TimerWidgetRoot = styled.div(props => ({
@@ -14,7 +15,7 @@ const TimerWidgetRoot = styled.div(props => ({
 	cursor: 'pointer',
 }))
 
-const Graphic = styled.div({
+const Graphic = styled.div(props => ({
 	flex: '0 0 auto',
     overflow: 'hidden',  // https://stackoverflow.com/a/43809765
     paddingRight: '7px',
@@ -22,34 +23,38 @@ const Graphic = styled.div({
 	flexDirection: 'row',
 	justifyContent: 'flex-end',
 	alignItems: 'center',
-})
+}))
 
-const Labels = styled.div({
+const Labels = styled.div(props => ({
 	flex: '1 1 auto',
-    overflow: 'hidden',  // https://stackoverflow.com/a/43809765
+    overflow: props.jumbo ? 'visible' : 'hidden',  // https://stackoverflow.com/a/43809765
     paddingLeft: '7px',
-    paddingTop: '2.5px',
+    paddingTop: props.jumbo ? 0 : '2.5px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
     textAlign: 'left',
-})
+}))
 
-const Title = styled.div({
+const Title = styled.div(props => ({
+	display: props.jumbo ? 'none' : 'block',
 	fontSize: '14px',
 	whiteSpace: 'nowrap',
 	textOverflow: 'ellipsis',
 	width: '100%',
 	overflow: 'hidden',
-})
+}))
 
-const Time = styled.div({
-	fontSize: '12px',
-})
+const Time = styled.div(props => ({
+	fontSize: props.jumbo ? '22px' : '12px',
+}))
 
 const TimerWidget = React.memo(props => {
+	const timerContext = useContext(TimerContext)
 	const instance = props.instance
+
+	const jumbo = (timerContext.widgetDisplay === 'jumbo')
 
 	let backgroundColor = style.color.success
 	let trackColor = '#479644'
@@ -64,12 +69,12 @@ const TimerWidget = React.memo(props => {
 
 	return (
 		<TimerWidgetRoot backgroundColor={backgroundColor} onClick={props.onClick}>
-			<Graphic>
+			<Graphic jumbo={jumbo}>
 				<TimerProgressIndicator R={props.indicatorR} trackColor={trackColor} progress={instance.progress} />
 			</Graphic>
-			<Labels>
-				<Title>{instance.title}</Title>
-				<Time>{instance.formattedTime}</Time>
+			<Labels jumbo={jumbo}>
+				<Title jumbo={jumbo}>{instance.title}</Title>
+				<Time jumbo={jumbo}>{instance.formattedTime}</Time>
 			</Labels>
 		</TimerWidgetRoot>
 	)

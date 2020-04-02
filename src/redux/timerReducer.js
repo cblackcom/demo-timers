@@ -13,6 +13,8 @@ const initialState = {
 	instances: [],
 	showOptionsOnId: {
 		menu: null,
+		catBox: null,
+		videoBox: null,
 	},
 }
 
@@ -41,6 +43,7 @@ const timerReducer = (state = initialState, action) => {
 						start_time: state.movement.epochTime,
 						duration_seconds: action.duration_seconds,
 						title: action.title || 'Timer',
+						related_view: action.related_view,
 					},
 				],
 			}
@@ -58,10 +61,19 @@ const timerReducer = (state = initialState, action) => {
 				}),
 			}
 		case 'TIMER_DELETE':
-			return {
-				...state,
-				instances: state.instances.filter(instance => (instance.timer_id !== action.timer_id)),
+			if(action.timer_id) {
+				return {
+					...state,
+					instances: state.instances.filter(instance => (instance.timer_id !== action.timer_id)),
+				}
 			}
+			if(action.related_view) {
+				return {
+					...state,
+					instances: state.instances.filter(instance => (instance.related_view !== action.related_view)),
+				}
+			}
+			return state
 		case 'TIMER_OPTIONS_SHOW':
 			return {
 				...state,

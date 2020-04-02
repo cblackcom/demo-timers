@@ -4,20 +4,16 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashAlt, faBed, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import Root from './Root'
 import movement from './movement'
-import Header from './Header'
 import addInitialTimers from './jeff/addInitialTimers'
 
 library.add(faTrashAlt, faBed, faPlusCircle)
 
-const App = React.memo(props => (
-	<Header />
-))
-
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<Root />
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
