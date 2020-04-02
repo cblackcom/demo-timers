@@ -9,7 +9,6 @@
 /coverage
 
 # production
-# nope, we want to use this for github pages
 /build
 
 # misc

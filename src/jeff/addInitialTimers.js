@@ -11,6 +11,7 @@ export default () => {
 	store.dispatch({
 		type: 'TIMER_CREATE',
 		title: 'Timer Uno',
+		duration_seconds: 70,
 	})
 
 	const state = store.getState()

@@ -1,15 +1,11 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
+import UnstyledButton from './UnstyledButton'
 import * as style from './style'
 
-const BsButtonRoot = styled.button(props => ({
+const BsButtonRoot = styled(UnstyledButton)(props => ({
 	// sort of yanked from BS3
-	display: 'inline-block',
-    cursor: 'pointer',
-	backgroundImage: 'none',
-	border: '1px solid transparent',
-	whiteSpace: 'nowrap',
 	padding: '6px 12px',
 	fontSize: '14px',
 	userSelect: 'none',
@@ -17,7 +13,6 @@ const BsButtonRoot = styled.button(props => ({
 	borderRadius: style.borderRadius,
 	backgroundColor: style.color[props.backgroundColor] || style.color.boringGrey,
 	color: 'white',
-	outline: 'none',
 
 	'&:hover': {
 		color: '#ddd',

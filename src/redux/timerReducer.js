@@ -39,8 +39,8 @@ const timerReducer = (state = initialState, action) => {
 						// attached.  we're emulating that here.
 						timer_id: selectTimerNextUnusedId(state),
 						start_time: state.movement.epochTime,
-						duration_seconds: 70,
-						title: 'Yo!'
+						duration_seconds: action.duration_seconds,
+						title: action.title || 'Timer',
 					},
 				],
 			}

@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 const ClockRoot = styled.div({
 	fontSize: '16px',
+	whiteSpace: 'nowrap',
 })
 
 // NOTE
