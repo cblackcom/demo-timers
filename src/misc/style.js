@@ -7,3 +7,5 @@ export const color = {
 	danger: '#d9534f',
 	primaryBlue: '#517ffc',
 }
+
+export const headerPadding = 10

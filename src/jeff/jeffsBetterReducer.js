@@ -12,7 +12,7 @@ export const jeffsBetterReducer = (state, action) => {
 		let newState = { ...state }
 		const destination = _.get(state, action.path)
 		if(!_.isArray(destination)) {
-			throw "Couldn't find destination array"
+			throw new Error("Couldn't find destination array")
 		}
 		_.set(newState, action.path, [
 			...destination,

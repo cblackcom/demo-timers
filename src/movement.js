@@ -1,7 +1,5 @@
 import store from './redux/store'
 
-const selectMovement = state => state.timer.movement
-
 class TimerMovement {
 	__construct() {
 		this.timeout = null
@@ -46,7 +44,7 @@ class TimerMovement {
 	}
 
 	handleStoreUpdate = () => {
-		// const movement = selectMovement(store.getState())
+		// const movement = store.getState().timer.movement
 		// if(movement !== this.currentState) {
 		// 	console.debug('[TimerMovement] movement update', movement)
 		// 	this.currentState = movement

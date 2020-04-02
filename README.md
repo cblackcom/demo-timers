@@ -4,7 +4,7 @@ LOOK at NOTEs to derive demo plan.
 
 ---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on  April 1, 2020.
 
 ## Available Scripts
 

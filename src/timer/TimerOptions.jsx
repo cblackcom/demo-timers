@@ -3,18 +3,26 @@ import { useDispatch } from 'react-redux'
 import styled from '@emotion/styled'
 import { UtilityFloatAbsolute } from '../misc/UtilityFloat'
 import BsButton from '../misc/BsButton'
+import TimerContext from './TimerContext'
+import * as style from '../misc/style'
 
-const TimerOptionsRoot = styled(UtilityFloatAbsolute)({
+const TimerOptionsRoot = styled(UtilityFloatAbsolute)(props => ({
 	display: 'flex',
 	flexDirection: 'column',
 	padding: '10px 13px 2px',
-})
+
+	// NOTE
+	// Using context to change the appearance of a component from several ancestors
+	// up without sending props up the heirarchy
+	marginTop: (props.view === 'menu') ? style.headerPadding : 0,
+}))
 
 const TimerOptionButton = styled(BsButton)({
 	marginBottom: '8px',
 })
 
 const TimerOptions = React.memo(props => {
+	const timerContext = useContext(TimerContext)
 	const dispatch = useDispatch()
 
 	const timer_id = props.instance.timer_id
@@ -38,7 +46,7 @@ const TimerOptions = React.memo(props => {
 	}
 
 	return (
-		<TimerOptionsRoot>
+		<TimerOptionsRoot view={timerContext.view}>
 			<TimerOptionButton
 				color="primaryBlue"
 				icon="bed"

@@ -5,6 +5,7 @@ import { selectCalculatedTimers } from './redux/timerSelectors'
 import HeaderClock from './HeaderClock'
 import Timer from './timer/Timer'
 import TimerContext from './timer/TimerContext'
+import * as style from './misc/style'
 
 const HeaderRoot = styled.div({
 	backgroundColor: '#1a1a1a',
@@ -13,9 +14,8 @@ const HeaderRoot = styled.div({
 	flexDirection: 'row',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-	padding: '10px',
+	padding: style.headerPadding,
 	position: 'relative',
-	zIndex: 1000,
 })
 
 const Timers = styled.div({

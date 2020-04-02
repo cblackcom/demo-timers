@@ -1,24 +1,18 @@
-import React, { useRef, useContext, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 import styled from '@emotion/styled'
 import * as style from '../misc/style'
 import TimerProgressIndicator from './TimerProgressIndicator'
 
-const TimerWidgetRoot = styled.div(props => {
-	// TODO
-	// let timerClassName = `timer-timer timerContextView-${timerContext.view} `
-
-	return {
-		backgroundColor: props.backgroundColor,
-		color: 'white',
-		borderRadius: style.borderRadius,
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center',
-		padding: '7px 15px',
-		cursor: 'pointer',
-	}
-})
+const TimerWidgetRoot = styled.div(props => ({
+	backgroundColor: props.backgroundColor,
+	color: 'white',
+	borderRadius: style.borderRadius,
+	display: 'flex',
+	flexDirection: 'row',
+	justifyContent: 'center',
+	padding: '7px 15px',
+	cursor: 'pointer',
+}))
 
 const Graphic = styled.div({
 	flex: '0 0 auto',

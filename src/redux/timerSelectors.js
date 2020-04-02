@@ -8,9 +8,10 @@ const instanceSort = (a, b) => a.timeRemaining - b.timeRemaining
 
 // NOTE
 // Selectors are the sanctioned way to create derived data from the state tree.
-// Memoized selectors (createSelector) save the results of the computation
-// and only re-calculate when the underlying state changes
+// Memoized selectors (reselect's createSelector) save the results of the
+// computation and only re-calculate when the underlying state changes.
 // https://redux.js.org/recipes/computing-derived-data
+// This one even sorts the timers by timeRemaining automatically.
 
 export const selectCalculatedTimers = createSelector(
   selectEpochTime,

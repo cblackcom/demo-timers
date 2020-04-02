@@ -44,9 +44,7 @@ const Timer = React.memo(props => {
 
 	return (
 		<TimerRoot ref={containerRef} className={props.className}>
-			<TimerWidget instance={instance} onClick={handleClick}>
-				
-			</TimerWidget>
+			<TimerWidget instance={instance} onClick={handleClick} />
 			{isShowingOptions ? (
 				<TimerOptions instance={instance} />
 			) : null}
