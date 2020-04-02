@@ -1,6 +1,22 @@
 # demo-timers
 
+## View it online!
+
+https://cblackcom.github.io/demo-timers/
+
+## TODO 
 LOOK at NOTEs to derive demo plan.
+
+## Run it local
+
+### `npm start`
+
+## Deploy to github.io
+
+### `npm run deploy`
+
+Deploy implemented using this tutorial:  
+https://github.com/gitname/react-gh-pages
 
 ---
 
