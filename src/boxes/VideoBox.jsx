@@ -3,35 +3,53 @@ import _ from 'lodash'
 import $ from 'jquery'
 import styled from '@emotion/styled'
 import { useDispatch } from 'react-redux'
-import { useDebounce } from 'use-debounce'
 import YouTube from 'react-youtube'
 import TimerContext from '../timer/TimerContext'
+import { useDebouncedWindowSize2 } from '../misc/useDebouncedWindowSize'
 import { Box, BoxTitle, BoxViewTimerContainer } from './Box'
-
-// NOTE
-// useLayoutEffect and useDebounce to keep a space measured without
-// wrecking the experience during window resize
 
 const VIDEOS = {
 	'e1bEWoblGZA': 'Unbox a box',
 	'0qBqvfH2YY4': 'Unbox a car',
 }
 
+// aspect ratio
+const getHeight = (width) => (width * 9/16)
+
 const SelectContainer = styled.div({
 	marginBottom: 10,
+})
+
+const VideoFrameContainer = styled.div({
+	// Create just the right space for the youtube video,
+	// and position it over that space rather than IN the space,
+	// so that the video doesn't push around the parent box's bounds
+	// during resize, and cause this box to be larger than it should be
+	// maintaining aspect ratio: https://css-tricks.com/aspect-ratio-boxes/
+	width: '100%',
+	overflow: 'hidden',
+	height: 0,
+	paddingTop: getHeight(100) + '%',
+	position: 'relative',
+	'> *': {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+	}
 })
 
 const VideoBox = React.memo(props => {
 	const timerContext = useContext(TimerContext)
 	const videoContainerRef = useRef(null)
 	const [videoId, setVideoId] = useState(_.keys(VIDEOS)[0])
-	const [measuredWidth, setMeasuredWidth] = useState(50)
-	const [measuredWidthDebounced] = useDebounce(measuredWidth, 250)
+	const windowSize = useDebouncedWindowSize2(500)
+	const [measuredWidth, setMeasuredWidth] = useState(100)
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
+		console.debug('windowSize is:', windowSize)
 		setMeasuredWidth($(videoContainerRef.current).innerWidth())
-	}, [setMeasuredWidth, videoContainerRef])
+	}, [windowSize, setMeasuredWidth, videoContainerRef])
 
 	const handleVideoChange = (e) => {
 		setVideoId(e.currentTarget.value)
@@ -60,8 +78,8 @@ const VideoBox = React.memo(props => {
 	}
 
 	const videoOpts = {
-		width: measuredWidthDebounced,
-		height: measuredWidthDebounced * (9/16),
+		width: measuredWidth,
+		height: getHeight(measuredWidth),
 	}
 
 	return (
@@ -80,14 +98,14 @@ const VideoBox = React.memo(props => {
 				</select>
 			</SelectContainer>
 			<BoxViewTimerContainer />
-			<div ref={videoContainerRef}>
+			<VideoFrameContainer ref={videoContainerRef}>
 				<YouTube
 					videoId={videoId}
 					opts={videoOpts}
 					onPlay={handlePlay}
 					onPause={handlePause}
 				/>
-			</div>
+			</VideoFrameContainer>
 		</Box>
 	)
 })

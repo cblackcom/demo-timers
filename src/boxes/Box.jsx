@@ -8,7 +8,7 @@ export const Box = styled.div({
 	borderColor: style.color.notQuiteBlack,
 	borderRadius: style.borderRadius,
 	padding: 20,
-	//overflow: 'hidden',
+	overflow: 'hidden',
 })
 
 export const BoxTitle = styled.div({
