@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/core'
 
 export const borderRadius = 5
 
@@ -10,3 +11,12 @@ export const color = {
 }
 
 export const headerPadding = 10
+
+export const rotateKeyframes = keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+`
