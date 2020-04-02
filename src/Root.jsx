@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import TimerContext from './timer/TimerContext'
 import Header from './Header'
+import ReadmeBox from './boxes/ReadmeBox'
 import CatBox from './boxes/CatBox'
 import VideoBox from './boxes/VideoBox'
 
@@ -27,6 +28,10 @@ const Root = React.memo(props => (
 		</TimerContext.Provider>
 
 		<BoxContainer>
+			<TimerContext.Provider value={{view: 'readmeBox', title: 'README Box', widgetDisplay: 'jumbo'}}>
+				<ReadmeBox />
+			</TimerContext.Provider>
+
 			<TimerContext.Provider value={{view: 'catBox', title: 'Cat Box', widgetDisplay: 'jumbo'}}>
 				<CatBox />
 			</TimerContext.Provider>

@@ -10,6 +10,8 @@ const TimerOptionsRoot = styled(UtilityFloatAbsolute)(props => ({
 	display: 'flex',
 	flexDirection: 'column',
 	padding: '10px 13px 2px',
+	marginLeft: '-13px',
+	width: '100%',
 
 	// NOTE
 	// Using context to change the appearance of a component from several ancestors
@@ -37,7 +39,7 @@ const TimerOptions = React.memo(props => {
 
 	const handleDeleteClick = (e) => {
 		dispatch({type: 'TIMER_OPTIONS_HIDE'})
-		
+
 		// if(window.confirm('Are you sure you want to delete this timer?')) {
 			dispatch({
 				type: 'TIMER_DELETE',

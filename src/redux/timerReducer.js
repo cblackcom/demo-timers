@@ -13,6 +13,7 @@ const initialState = {
 	instances: [],
 	showOptionsOnId: {
 		menu: null,
+		readmeBox: null,
 		catBox: null,
 		videoBox: null,
 	},
