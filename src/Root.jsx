@@ -28,16 +28,16 @@ const Root = React.memo(props => (
 		</TimerContext.Provider>
 
 		<BoxContainer>
-			<TimerContext.Provider value={{view: 'readmeBox', title: 'README Box', widgetDisplay: 'jumbo'}}>
-				<ReadmeBox />
-			</TimerContext.Provider>
-
 			<TimerContext.Provider value={{view: 'catBox', title: 'Cat Box', widgetDisplay: 'jumbo'}}>
 				<CatBox />
 			</TimerContext.Provider>
 
 			<TimerContext.Provider value={{view: 'videoBox', title: 'Video Box', widgetDisplay: 'jumbo'}}>
 				<VideoBox />
+			</TimerContext.Provider>
+
+			<TimerContext.Provider value={{view: 'readmeBox', title: 'README Box', widgetDisplay: 'jumbo'}}>
+				<ReadmeBox />
 			</TimerContext.Provider>
 		</BoxContainer>
 	</RootContainer>
