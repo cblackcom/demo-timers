@@ -8,8 +8,8 @@ import UnstyledButton from '../misc/UnstyledButton'
 import BsButton from '../misc/BsButton'
 
 // NOTE
-// AddTimerButton component can be placed anywhere within a TimerContext
-// and based on that information alone, it knows how to render and behave;
+// AddTimerButton component can be placed anywhere within a TimerContext.
+// Based on that information alone it knows how to render and behave—
 // no props required.
 
 const MenuAddTimerButton = styled(UnstyledButton)({

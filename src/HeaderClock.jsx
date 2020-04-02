@@ -8,8 +8,7 @@ const ClockRoot = styled.div({
 })
 
 // NOTE
-// React and Redux hooks are useful for building really simple
-// data driven components.
+// Hooks + Redux = tidy, predictable code
 
 const Clock = React.memo(props => {
 	const clientTick = useSelector(state => state.timer.movement.clientTick)

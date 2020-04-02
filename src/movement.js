@@ -1,5 +1,12 @@
 import store from './redux/store'
 
+// NOTE
+// This simple javascript class updates the `state.timer.movement` branch of
+// the state tree by dispatching once per second.
+// Because the `selectCalculatedTimers` memoized selector depends on
+// `state.timer.movement.epochTime`, all timers are updated automatically
+// in unison.
+
 class TimerMovement {
 	__construct() {
 		this.timeout = null

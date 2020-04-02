@@ -18,6 +18,10 @@ export const BoxTitle = styled.div({
 	marginBottom: 10,
 })
 
+// NOTE
+// You can create a restyled React component from any component that accepts
+// the `className` prop, like ViewTimerContainer
+
 export const BoxViewTimerContainer = styled(ViewTimerContainer)({
 	marginBottom: 10,
 })

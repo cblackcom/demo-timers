@@ -6,10 +6,14 @@ import _ from 'lodash'
 const DEFAULT_DELAY_MS = 250
 
 // NOTE
-// Two custom hooks with slightly different methods
-// for debouncing a Window resize.
-// This first one uses useDebounce hook which is very cool because it can
-// easily debounce local state changes, prop changes, Redux state changes...
+//
+// We need to write a hook to help our VideoBox component know when the Window
+// has been resized, so that it can send a new size param to the YouTube API.
+//
+// There are two custom hooks here with slightly different approaches.
+//
+// This first one uses useDebounce hook — which is a very cool hook because it
+// can easily debounce local state changes, prop changes, Redux state changes...
 
 export const useDebouncedWindowSize1 = (delay = DEFAULT_DELAY_MS) => {
 	const [windowSize, setWindowSize] = useState([0, 0])

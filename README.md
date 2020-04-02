@@ -2,10 +2,10 @@
 
 ## View it online!
 
-https://cblackcom.github.io/demo-timers/
+https://cblack.cc/timers
 
-## TODO 
-LOOK at NOTEs to derive demo plan.
+## Explore the code
+See the above link for specific pointers, or grep this repository for 'NOTE' to see highlights.
 
 ## Run it local
 

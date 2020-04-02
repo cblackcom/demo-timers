@@ -2,10 +2,12 @@ import _ from 'lodash'
 import { TYPE_INSERT_RECORD } from './jeffsActions'
 
 // NOTE—  Jeff, this one's for you!
+//
 // Here's a super generic "record inserting" reducer
 // (without a switch statement, persay)
-// I'm not saying this is a good idea, just trying to demonstrate the
-// flexibility in approaches that Redux provides.
+//
+// I'm not saying this is a good idea.  It's simply to demonstrate the
+// flexibility in approaches that Redux provides to the architect.
 
 export const jeffsBetterReducer = (state, action) => {
 	if(action.type === TYPE_INSERT_RECORD) {

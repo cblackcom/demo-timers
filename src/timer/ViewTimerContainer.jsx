@@ -5,6 +5,7 @@ import TimerContext from './TimerContext'
 import Timer from './Timer'
 import AddTimerButton from './AddTimerButton'
 
+// NOTE
 // this component shows the timer for the current TimerContext view,
 // or if there isn't one, an Add Timer button
 

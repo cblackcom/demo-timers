@@ -35,6 +35,9 @@ const timerContextInfo = {
 	view: 'menu',
 }
 
+// NOTE
+// Hooks + Redux = tidy, predictable code
+
 const Header = React.memo(props => {
 	const timerInstances = useSelector(selectCalculatedTimers)
 
