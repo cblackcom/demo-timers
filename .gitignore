@@ -11,6 +11,11 @@
 # production
 /build
 
+# laravel mix
+mix-manifest.json
+hot
+dist
+
 # misc
 .DS_Store
 .env.local
