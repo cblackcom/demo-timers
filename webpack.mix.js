@@ -11,7 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/index.js', 'dist/').sass('src/index.scss', 'dist/');
+mix.js('src/index.js', 'dist/');
+//mix.sass('src/index.scss', 'dist/');
 
 mix.babelConfig({
 	plugins: [
@@ -20,6 +21,17 @@ mix.babelConfig({
 });
 
 mix.setPublicPath('public');
+
+// Use Vue runtime build ("30% lighter")
+// https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
+// https://github.com/JeffreyWay/laravel-mix/issues/1052
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.runtime.js'
+        }
+    }
+});
 
 // Full API
 // mix.js(src, output);
