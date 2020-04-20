@@ -22,13 +22,16 @@ mix.babelConfig({
 
 mix.setPublicPath('public');
 
-// Use Vue runtime build ("30% lighter")
-// https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
-// https://github.com/JeffreyWay/laravel-mix/issues/1052
 mix.webpackConfig({
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.runtime.js'
+            // Use Vue runtime build ("30% lighter")
+            // https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
+            // https://github.com/JeffreyWay/laravel-mix/issues/1052
+            'vue$': 'vue/dist/vue.runtime.js',
+
+            // For pndlm-vue-redux development
+            'pndlm-vue-redux$': path.resolve(__dirname, '../pndlm-vue-redux/src/index.js'),
         }
     }
 });
